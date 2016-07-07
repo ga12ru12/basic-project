@@ -1,0 +1,41 @@
+{
+  "name": "Basic Template",
+  "version": "0.0.0",
+  "description": "Basic Template React + Redux + Express",
+  "scripts": {
+    "start": "cross-env NODE_PATH=./app concurrently --kill-others \"nodemon server\" \"node webpack.server.js\" \"gulp css:watch\"",
+    "test": "cross-env NODE_ENV=test cross-env NODE_PATH=./app mocha --compilers js:babel-register -r app/spec/support/setup.mocha.js --recursive 'app/spec/**/*.test.js' -w",
+    "test:ci": "cross-env NODE_ENV=test cross-env NODE_PATH=./app mocha --compilers js:babel-register -r app/spec/support/setup.mocha.js --recursive 'app/spec/**/*.test.js'",
+    "webpack": "webpack",
+    "build": "rimraf dist/ && npm run webpack && gulp css:build",
+    "postinstall": "npm run build"
+  },
+  "engines": {
+    "node": "6.1.0",
+    "npm": "3.8.6"
+  },
+  "dependencies": {
+    "assets-webpack-plugin": "^3.4.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-register": "^6.9.0",
+    "bluebird": "^3.4.1",
+    "compression": "^1.6.2",
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
+    "history": "^3.0.0",
+    "humps": "^1.1.0",
+    "immutable": "^3.8.1",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.13.1",
+    "normalizr": "^2.1.0",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
+    "rewire": "^2.5.2",
+    "superagent": "^2.0.0"
+  }
+}
